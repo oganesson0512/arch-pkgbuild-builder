@@ -10,9 +10,10 @@ if [[ -n $DEBUG  && $DEBUG = true ]]; then
 fi
 
 target=$1
-pkgname=$2
+dictionary=$2
 command=$3
-
+for pkg in `ls -AF workfiles |grep '/$' | tr -d '/'`
+pkgname=workfiles/${pkg}
 # assumes that package files are in a subdirectory
 # of the same name as "pkgname", so this works well
 # with "aurpublish" tool
@@ -81,3 +82,5 @@ case $target in
 esac
 
 sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
+mv $pkgname/*.zst coolapk-linux/x86_64/
+done
