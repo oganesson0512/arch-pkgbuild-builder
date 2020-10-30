@@ -1,5 +1,5 @@
 # Arch Linux PKGBUILD builder action
-
+## This edition is just for project CoolapkLinux
 This action builds an validates Arch Linux package.
 The `PKGBUILD` and `.SRCINFO` files should be under a subdirectory named the same as the `pkgbuild` of the package.
 This assumption is made so this action works well with [aurpublish].
