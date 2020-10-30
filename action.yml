@@ -31,6 +31,6 @@ runs:
   image: Dockerfile
   args:
     - ${{ inputs.target }}
-    - ${{ inputs.pkgname }}
+    - ${{ inputs.dictionary }}
     - ${{ inputs.command }}
     - ${{ inputs.debug }}
