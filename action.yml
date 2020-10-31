@@ -14,7 +14,7 @@ inputs:
   target:
     description: >-
       Validation target.
-      Can be one of: "pkgbuild", "srcinfo", "run"
+      Can be one of: "pkgbuild", "srcinfo", "run", "push", "repo-add"
     required: true
     default: 'pkgbuild'
   command:
@@ -25,7 +25,6 @@ inputs:
   debug:
     description: Turns debugging on
     required: false
-
 runs:
   using: docker
   image: Dockerfile
