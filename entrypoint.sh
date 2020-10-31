@@ -83,5 +83,5 @@ case $target in
 esac
 
 sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
-mv $pkgname/*.zst coolapk-linux/x86_64/
+mv *.zst coolapk-linux/x86_64/
 done
