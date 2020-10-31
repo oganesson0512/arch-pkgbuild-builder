@@ -12,7 +12,7 @@ fi
 target=$1
 dictionary=$2
 command=$3
-for pkg in `ls -AF workfiles |grep '/$' | tr -d '/'`
+for pkg in `ls -AF $dictionary |grep '/$' | tr -d '/'`
 do
 pkgname="$dictionary"/"$pkg"
 # assumes that package files are in a subdirectory
