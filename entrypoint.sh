@@ -14,7 +14,7 @@ dictionary=$2
 command=$3
 for pkg in `ls -AF workfiles |grep '/$' | tr -d '/'`
 do
-pkgname=workfiles/"$pkg"
+pkgname="$dictionary"/"$pkg"
 # assumes that package files are in a subdirectory
 # of the same name as "pkgname", so this works well
 # with "aurpublish" tool
