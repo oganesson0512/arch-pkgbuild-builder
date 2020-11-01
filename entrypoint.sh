@@ -87,3 +87,4 @@ done
 case $target in
     repo-add)
         repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../pkgbuild/*/*.zst
+esac
