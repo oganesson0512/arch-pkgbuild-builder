@@ -19,7 +19,7 @@ case $target in
           cd coolapk-linux
           pkgname=$(ls ../pkgbuild/${pkg}/*.zst)
           mv ../pkgbuild/${pkg}/${pkgname}
-          repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../../pkgbuild/*/${pkgname}
+          repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkgname}
     *)
 for pkg in `cat need-update`
 do
