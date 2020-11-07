@@ -30,7 +30,10 @@ if [[ ! -e $pkgname/PKGBUILD ]]; then
 fi
 
 pkgbuild_dir=$(readlink "$pkgname" -f) # nicely cleans up path, ie. ///dsq/dqsdsq/my-package//// -> /dsq/dqsdsq/my-package
-
+case $target in
+    repo-add)
+        repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../../pkgbuild/*/*.zst
+    *)
 getfacl -p -R "$pkgbuild_dir" /github/home > /tmp/arch-pkgbuild-builder-permissions.bak
 
 # '/github/workspace' is mounted as a volume and has owner set to root
@@ -84,7 +87,4 @@ esac
 
 sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
 done
-case $target in
-    repo-add)
-        repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../../pkgbuild/*/*.zst
 esac
