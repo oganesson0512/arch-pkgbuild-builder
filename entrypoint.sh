@@ -12,6 +12,14 @@ fi
 target=$1
 dictionary=$2
 command=$3
+case $target in
+    repo-add)
+        for pkg in `cat need-update`
+        do
+          pkgname=$(ls ../pkgbuild/${pkg}/*.zst)
+          mv 
+          repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../../pkgbuild/*/*.zst
+    *)
 for pkg in `cat need-update`
 do
 pkgname="$dictionary"/"$pkg"
@@ -30,10 +38,7 @@ if [[ ! -e $pkgname/PKGBUILD ]]; then
 fi
 
 pkgbuild_dir=$(readlink "$pkgname" -f) # nicely cleans up path, ie. ///dsq/dqsdsq/my-package//// -> /dsq/dqsdsq/my-package
-case $target in
-    repo-add)
-        repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz ../../pkgbuild/*/*.zst
-    *)
+
 getfacl -p -R "$pkgbuild_dir" /github/home > /tmp/arch-pkgbuild-builder-permissions.bak
 
 # '/github/workspace' is mounted as a volume and has owner set to root
