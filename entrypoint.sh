@@ -91,9 +91,9 @@ case $target in
             ;;
          *)
             echo "Target should be one of 'pkgbuild', 'srcinfo', 'run'" ;;
-       ;;
 esac
 
 sudo setfacl --restore=/tmp/arch-pkgbuild-builder-permissions.bak
 done
+;;
 esac
