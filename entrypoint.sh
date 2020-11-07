@@ -21,6 +21,7 @@ case $target in
           mv ../pkgbuild/${pkg}/${pkgname}
           repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkgname}
           done
+          ;;
     *)
       for pkg in `cat need-update`
       do
