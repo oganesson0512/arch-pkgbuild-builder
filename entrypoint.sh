@@ -23,6 +23,7 @@ case $target in
           done
           ;;
     *)
+      cd /github/workspace
       for pkg in `cat need-update`
       do
       pkgname="$dictionary"/"$pkg"
