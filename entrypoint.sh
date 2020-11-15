@@ -23,9 +23,9 @@ case $target in
           done
           ;;
     *)
-      cd /github/workspace
       for pkg in `cat need-update`
       do
+      cd /github/workspace
       pkgname="$dictionary"/"$pkg"
       # assumes that package files are in a subdirectory
       # of the same name as "pkgname", so this works well
