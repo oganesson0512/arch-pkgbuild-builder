@@ -16,7 +16,7 @@ case $target in
     repo-add)
         for pkg in `cat need-update`
         do
-          cd coolapk-linux
+          cd /github/workspace/coolapk-linux
           pkgname=$(ls ../pkgbuild/${pkg}/*.zst|awk -F\/ '{print $4}')
           sudo mv ../pkgbuild/${pkg}/${pkgname} coolapk-linux/x86_64/
           sudo repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkgname}
