@@ -62,8 +62,10 @@ case $target in
 
       install_deps() {
           # install make and regular package dependencies
-          grep -E 'depends|makedepends' PKGBUILD | \
-          sed -e 's/.*depends=//' -e 's/ /\n/g' | \
+          #alex delete "depends|" before makedepends
+          grep -E 'makedepends' PKGBUILD | \
+          #alex edit "*depends">"*makedepends"
+          sed -e 's/.*makedepends=//' -e 's/ /\n/g' | \
           tr -d "'" | tr -d "(" | tr -d ")" | \
           xargs yay -S --noconfirm
        }
@@ -72,10 +74,13 @@ case $target in
          pkgbuild)
             namcap PKGBUILD
             install_deps
-            makepkg --syncdeps --noconfirm
+            #alex edit:add -d
+            makepkg -d --syncdeps --noconfirm
             namcap "${pkgname}"-*
-
+            
             # shellcheck disable=SC1091
+            #alex add this to sign the packages with the name of "Suxi" and email address of himself
+            sudo echo "PACKAGER="Suxi <alex-hhh@qq.com>"" >> /etc/makepkg.conf
             source /etc/makepkg.conf # get PKGEXT
 
             pacman -Qip "${pkgname}"-*"${PKGEXT}"
