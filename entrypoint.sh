@@ -80,9 +80,12 @@ case $target in
             
             # shellcheck disable=SC1091
             #alex add this to sign the packages with the name of "Suxi" and email address of himself
-            sudo echo "PACKAGER="Suxi <alex-hhh@qq.com>"" >> /etc/makepkg.conf
+            grep "Suxi" /etc/makepkg.conf
+            if [ $? -ne 0 ]; then
+                   sudo echo "PACKAGER="Suxi <alex-hhh@qq.com>"" >> /etc/makepkg.conf
+            fi
+            
             source /etc/makepkg.conf # get PKGEXT
-
             pacman -Qip "${pkgname}"-*"${PKGEXT}"
             pacman -Qlp "${pkgname}"-*"${PKGEXT}"
             ;;
