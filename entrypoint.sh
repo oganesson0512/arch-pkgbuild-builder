@@ -62,8 +62,8 @@ case $target in
 
       install_deps() {
           # install make and regular package dependencies
-          grep -E 'depends|makedepends' PKGBUILD | \
-          sed -e 's/.*depends=//' -e 's/ /\n/g' | \
+          grep -E 'makedepends' PKGBUILD | \           
+          sed -e 's/.*makedepends=//' -e 's/ /\n/g' | \
           tr -d "'" | tr -d "(" | tr -d ")" | \
           xargs yay -S --noconfirm
        }
