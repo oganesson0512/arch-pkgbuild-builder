@@ -75,7 +75,7 @@ case $target in
             namcap PKGBUILD
             install_deps
             #alex edit:add -d
-            makepkg -d --syncdeps --noconfirm
+            makepkg -d -f --noconfirm
             namcap "${pkgname}"-*
             
             # shellcheck disable=SC1091
@@ -91,7 +91,7 @@ case $target in
             ;;
          run)
             install_deps
-            makepkg --syncdeps --noconfirm --install
+            makepkg -d -f --noconfirm --install
             eval "$command"
             ;;
          srcinfo)
