@@ -17,6 +17,8 @@ case $target in
         for pkg in `ls coolapk-linux/x86_64/*.zst`
         do
           sudo repo-add --verify --sign coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkg}
+	done
+	;;
     repo-add)
         for pkg in `cat need-update`
         do
