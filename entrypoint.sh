@@ -19,7 +19,7 @@ case $target in
           cd /github/workspace/coolapk-linux
           pkgname=$(ls ../pkgbuild/${pkg}/*.zst|awk -F\/ '{print $4}')
           sudo mv ../pkgbuild/${pkg}/${pkgname} coolapk-linux/x86_64/
-          sudo repo-add coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkgname}
+          sudo repo-add --verify --sign coolapk-linux/x86_64/coolapk-linux.db.tar.gz coolapk-linux/x86_64/${pkgname} 
           done
           ;;
     *)
@@ -75,7 +75,7 @@ case $target in
             namcap PKGBUILD
             install_deps
             #alex edit:add -d
-            makepkg -d --syncdeps --noconfirm
+            makepkg -d --syncdeps --noconfirm --sign
             namcap "${pkgname}"-*
             
             # shellcheck disable=SC1091
